@@ -73,3 +73,24 @@ proc `*`*(v1, v2 : vec3) : vec3 =
   result.x = v1.x * v2.x
   result.y = v1.y * v2.y
   result.z = v1.z * v2.z
+
+proc `*`*(v : vec3, f : float) : vec3 =
+  result.x = result.x * f
+  result.y = result.y * f
+  result.z = result.z * f
+
+proc `/`*(v : vec3, t : float) : vec3 =
+  return v * (1/t)
+
+proc dot*(u : vec3,  v : vec3) : float =
+  return ( u.x * v.x +
+    u.y * v.y +
+    u.z * v.z )
+
+proc cross*(u : vec3, v : vec3) : vec3 =
+  result.x = u[1] * v[2] - u[2]*v[1]
+  result.y = u[2] * v[0] - u[0]*v[2]
+  result.z = u[0] * v[1] - u[1]*v[0]
+
+proc unit_vector*(v : vec3) : vec3 =
+  return v / v.length()

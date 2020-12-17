@@ -1,6 +1,9 @@
 
-all : tt rt testoo testvec
+all : tt rt testoo testvec listing7
 
+
+listing7 : listing7.nim color.nim vec.nim
+	nim c listing7.nim
 
 testvec : testvec.nim vec.nim
 	nim c testvec.nim
