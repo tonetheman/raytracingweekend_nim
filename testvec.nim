@@ -58,13 +58,42 @@ proc test_addition_assignment() =
         assert v.y == 2
         assert v.z == 3
 
+proc test_mult_assignment() =
+    block:
+        var v = makevec3(1,2,3)
+        v *= 4
+
+        assert v.x == 4
+        assert v.y == 8
+        assert v.z == 12
+
+proc test_div_assignment() =
+    block:
+        var v = makevec3(10,20,30)
+        v /= 10
+
+        assert v.x == 1
+        assert v.y == 2
+        assert v.z == 3
+
+proc test_length() =
+    block:
+        let v = makevec3(1,2,3)
+
+        ## TODO: make these tests assert
+        ## 
+        echo v.length()
+        echo v.length_squared()
+
 proc test() = 
     test_init()
     test_setter()
     test_getter()
     test_unary_minus()
     test_addition_assignment()
-
+    test_mult_assignment()
+    test_div_assignment()
+    test_length()
 
 
 test()
