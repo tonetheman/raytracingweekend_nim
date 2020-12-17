@@ -61,3 +61,15 @@ proc length*(v : var vec3) : float =
 proc length*(v : vec3) : float =
   return m.sqrt(length_squared(v))
 
+proc `+`*(v1, v2 : vec3) : vec3 =
+  result.x = v1.x + v2.x
+  result.y = v1.y + v2.y
+  result.z = v1.z + v2.z
+proc `-`*(v1, v2 : vec3) : vec3 =
+  result.x = v1.x - v2.x
+  result.y = v1.y - v2.y
+  result.z = v1.z - v2.z
+proc `*`*(v1, v2 : vec3) : vec3 =
+  result.x = v1.x * v2.x
+  result.y = v1.y * v2.y
+  result.z = v1.z * v2.z

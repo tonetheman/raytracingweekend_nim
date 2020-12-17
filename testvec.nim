@@ -82,8 +82,16 @@ proc test_length() =
 
         ## TODO: make these tests assert
         ## 
-        echo v.length()
-        echo v.length_squared()
+        echo "test length: ", v.length()
+        echo "test length: ", v.length_squared()
+
+proc test_add() =
+    let v1 = makevec3(12,14,16)
+    let v2 = makevec3(1,1,1)
+    let v3 = v1 + v2
+    assert v3.x == 13
+    assert v3.y == 15
+    assert v3.z == 17
 
 proc test() = 
     test_init()
@@ -94,6 +102,6 @@ proc test() =
     test_mult_assignment()
     test_div_assignment()
     test_length()
-
+    test_add()
 
 test()
