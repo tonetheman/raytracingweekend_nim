@@ -2,6 +2,9 @@
 all : testvec listing7 listing9
 
 
+listing10 : listing10.nim vec.nim color.nim ray.nim
+	nim c listing10.nim
+
 listing9 : listing9.nim vec.nim color.nim ray.nim
 	nim c listing9.nim
 
@@ -16,3 +19,4 @@ clean :
 	rm -f testvec
 	rm -f listing7
 	rm -f listing9
+	rm -f listing10
