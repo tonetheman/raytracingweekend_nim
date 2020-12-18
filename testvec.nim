@@ -93,6 +93,12 @@ proc test_add() =
     assert v3.y == 15
     assert v3.z == 17
 
+proc test_mult() =
+    block:
+        let v = makevec3(10,20,30)
+        echo v
+        echo 3 * v
+
 proc test() = 
     test_init()
     test_setter()
@@ -103,5 +109,6 @@ proc test() =
     test_div_assignment()
     test_length()
     test_add()
+    test_mult()
 
 test()

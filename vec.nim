@@ -75,9 +75,15 @@ proc `*`*(v1, v2 : vec3) : vec3 =
   result.z = v1.z * v2.z
 
 proc `*`*(v : vec3, f : float) : vec3 =
-  result.x = result.x * f
-  result.y = result.y * f
-  result.z = result.z * f
+  # echo "first mult: ",v,f
+  result.x = v.x * f
+  result.y = v.y * f
+  result.z = v.z * f
+  # echo "result is ",result
+
+proc `*`*(f : float, v : vec3) : vec3 =
+  # echo "second mult: ",f,v
+  return v * f
 
 proc `/`*(v : vec3, t : float) : vec3 =
   return v * (1/t)

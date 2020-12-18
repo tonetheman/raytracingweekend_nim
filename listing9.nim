@@ -31,6 +31,6 @@ for j in countdown(image_height-1,0):
     for i in 0..<image_width:
         let u = float(i)/(image_width-1)
         let v = float(j)/(image_height-1)
-        var r = makeray(origin,lower_left_corner+(horizontal*u) + (vertical*v) - origin)
+        var r = makeray(origin,lower_left_corner+(u*horizontal) + (v*vertical) - origin)
         let pixel_color = ray_color(r)
         write_color(stdout,pixel_color)
