@@ -8,7 +8,7 @@ proc hit_sphere(center : point3, radius : float, r : ray) : bool =
     let oc = r.origin() - center
     let a = dot(r.direction(), r.direction())
     let b = 2.0 * dot(oc, r.direction())
-    let c = dot(oc,od) - radius*radius
+    let c = dot(oc,oc) - radius*radius
     let discriminant = b*b - 4*a*c
     return discriminant > 0
 
