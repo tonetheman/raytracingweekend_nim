@@ -45,6 +45,11 @@ proc `*=`*(v : var vec3, f : float) =
   v.x *= f
   v.y *= f
   v.z *= f
+
+proc `+=`*(v : var vec3, i : int) =
+  v.x += float(i)
+  v.y += float(i)
+  v.z += float(i)
   
 proc `/=`*(v : var vec3, f : float ) =
   v *= 1/f
