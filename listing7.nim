@@ -1,8 +1,7 @@
 
 
 import vec
-import color
-
+import wcolor
 
 const image_width  =  256
 const image_height = 256

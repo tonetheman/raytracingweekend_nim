@@ -2,7 +2,7 @@
 
 import vec
 import ray
-import color
+import wcolor
 
 proc ray_color(r : ray) : color =
     var unit_direction = unit_vector(r.direction())

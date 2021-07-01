@@ -2,7 +2,7 @@
 
 import vec
 import ray
-import color
+import wcolor
 
 proc hit_sphere(center : point3, radius : float, r : ray) : bool =
     let oc = r.origin() - center
@@ -12,9 +12,9 @@ proc hit_sphere(center : point3, radius : float, r : ray) : bool =
     let discriminant = b*b - 4*a*c
     return discriminant > 0
 
-proc ray_color(r : ray) : color3 =
-    if hit_sphere(point3(x:0,y:0,z:0),0.5,r):
-      return color3(x:1,y:0,z:0)
+proc ray_color(r : ray) : color =
+    if hit_sphere(point3(x: 0,y: 0,z: -1),0.5,r):
+      return color(x:1,y:0,z:0)
     var unit_direction = unit_vector(r.direction())
     let t = 0.5 * (unit_direction.y+1.0)
     return  (makevec3(1,1,1)*(1.0-t)) + (makevec3(0.5,0.7,1.0)*t)
