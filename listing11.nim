@@ -1,5 +1,4 @@
 
-
 import vec
 import ray
 import wcolor
@@ -11,18 +10,19 @@ proc hit_sphere(center : point3, radius : float, r : ray) : float =
     let b = 2.0 * dot(oc, r.direction())
     let c = dot(oc,oc) - radius*radius
     let discriminant = b*b - 4*a*c
-    if discriminant < 0.0:
+    if discriminant < 0:
         return -1.0
     else:
-        return (-b * - sqrt(discriminant))/(2.0*a)
+        return (-b - sqrt(discriminant)) / (2.0*a)
 
 proc ray_color(r : ray) : color =
-    var t :float = hit_sphere(point3(x: 0,y: 0,z: -1), 0.5, r)
-    if t>0.0:
-        let N = unit_vector(r.at(t) - makevec3(0,0,-1))
-        return 0.5 * color(x : N.x+1.0, y : N.y+1.0, z : N.z + 1.0)
+    var t = hit_sphere(point3(x: 0,y: 0,z: -1),0.5,r)
+    if t > 0.0:
+        let N = unit_vector(r.at(t) - vec3(x:0, y:0, z: -1))
+        return 0.5 * color(x: N.x+1, y: N.y+1, z: N.z+1)
+    
     var unit_direction = unit_vector(r.direction())
-    t = 0.5 * (unit_direction.y + 1.0)
+    t = 0.5 * (unit_direction.y+1.0)
     return  (makevec3(1,1,1)*(1.0-t)) + (makevec3(0.5,0.7,1.0)*t)
 
 
